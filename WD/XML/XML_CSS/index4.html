@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XML_CSS</title>
+  <style>
+    /* Base Reset and Layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #4a148c;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 5px #ffffff80;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: #fff;
+      padding: 16px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #f3e5f5, #e1bee7);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      color: #4a148c;
+      box-shadow: 0 8px 24px rgba(106, 27, 154, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1>XML_CSS</h1>
+    </header>
+
+    <div class="button-container">
+      <a href="Books.xml" class="btn"><span>Books XML</span></a>
+      <a href="Employee.xml" class="btn"><span>Employee XML</span></a>
+      <a href="Student.xml" class="btn"><span>Student XML</span></a>
+    </div>
+  </div>
+
+</body>
+</html>

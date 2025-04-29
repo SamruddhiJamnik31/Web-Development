@@ -1,0 +1,103 @@
+books {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    margin: 50px auto;
+    padding: 40px;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    background: linear-gradient(135deg, #f0f4f8, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+heading {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0f172a;
+    background: linear-gradient(90deg, #00e6a7, #00c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00e6a7, 0 0 20px #00e6a7;
+    }
+    to {
+        text-shadow: 0 0 20px #00c3ff, 0 0 30px #00c3ff;
+    }
+}
+
+book {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+book:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+book title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+book author {
+    font-size: 1.3em;
+    color: #0f766e;
+    margin-bottom: 8px;
+}
+
+book publisher,
+book edition {
+    font-size: 1em;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+book price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ef4444;
+    margin-top: 10px;
+}
+
+/* Animation on appear */
+book {
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+}
+
+book:nth-child(1) { animation-delay: 0.2s; }
+book:nth-child(2) { animation-delay: 0.4s; }
+book:nth-child(3) { animation-delay: 0.6s; }
+book:nth-child(4) { animation-delay: 0.8s; }
+book:nth-child(5) { animation-delay: 1s; }
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

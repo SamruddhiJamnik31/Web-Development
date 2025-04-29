@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iframe Layout Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        iframe {
+            border: none;
+            height: 100%;
+        }
+
+        .left-frame {
+            width: 30%;
+        }
+
+        .middle-frame {
+            width: 40%;
+        }
+
+        .right-frame {
+            width: 30%;
+        }
+
+        /* Optional: Add borders between frames */
+        iframe:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <iframe class="left-frame" src="Assignment no.3.html" name="left"></iframe>
+        <iframe class="middle-frame" src="Assignment no.5.html" name="middle"></iframe>
+        <iframe class="right-frame" src="Assignment no.2.html" name="right"></iframe>
+    </div>
+
+</body>
+</html>

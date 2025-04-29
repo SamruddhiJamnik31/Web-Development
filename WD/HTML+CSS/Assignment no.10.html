@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume - Samruddhi Jamnik</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #4a148c;
+      text-decoration: none;
+    }
+
+    /* Header */
+    .header {
+      background: #ffffff;
+      padding: 30px 20px;
+      max-width: 850px;
+      margin: 40px auto 20px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .header h2 {
+      font-size: 28px;
+      color: #6a5acd;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin: 10px 0;
+      color: #2e3b55;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .header img {
+      margin-top: 15px;
+      border-radius: 50%;
+      border: 3px solid #6a5acd;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(106, 90, 205, 0.2);
+    }
+
+    /* Fieldset Sections */
+    fieldset {
+      background-color: #ffffff;
+      padding: 30px;
+      max-width: 850px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      animation: slideUp 0.8s ease-out;
+    }
+
+    h2 {
+      color: #4a148c;
+      border-bottom: 2px solid #6a5acd;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    strong {
+      color: #333;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .header h2 {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .header img {
+        width: 90px;
+        height: 90px;
+      }
+
+      fieldset, .header {
+        padding: 20px;
+        margin: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Resume</h2>
+    <img src="Photo.jpeg" alt="Profile Picture">
+    <h1>Samruddhi Jamnik</h1>
+    <p>
+      Email: <a href="mailto:samruddhijamnik1234@gmail.com">samruddhijamnik1234@gmail.com</a><br>
+      Phone: 9657665556
+    </p>
+  </div>
+
+  <fieldset>
+    <h2>Objective</h2>
+    <p>
+      As a computer science BTech student, I'm eager to apply my understanding of programming, problem-solving, and software development in real-world scenarios. My goal is to continually grow as a software engineer and contribute meaningfully to a forward-thinking organization.
+    </p>
+
+    <h2>Education</h2>
+    <ul>
+      <li>
+        <strong>Bachelor of Technology (BTech) in Computer Science</strong><br>
+        D.Y. Patil College of Engineering & Technology<br>
+        CGPA: 8.5 / 10
+      </li>
+    </ul>
+
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>Task Manager CLI (Go)</strong><br>
+        Developed a command-line task management tool using Cobra and BoltDB.
+      </li>
+      <li>
+        <strong>URL Shortener Web App</strong><br>
+        Created a Go-based full-stack application with user authentication and custom short links.
+      </li>
+      <li>
+        <strong>Online Bakery Website</strong><br>
+        Built an e-commerce bakery site with product listings and order system using HTML, CSS, and JavaScript.
+      </li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Languages:</strong> C, C++, Java, Python, Go</li>
+      <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
+      <li><strong>Database:</strong> MySQL</li>
+      <li><strong>Version Control:</strong> Git, GitHub</li>
+      <li><strong>Tools & Technologies:</strong> Flutter, Go</li>
+    </ul>
+
+    <h2>Certifications</h2>
+    <ul>
+      <li>Python Certification – Cisco</li>
+      <li>Juniper Networking Certification – EduSkill</li>
+    </ul>
+  </fieldset>
+
+  
+
+</body>
+</html>

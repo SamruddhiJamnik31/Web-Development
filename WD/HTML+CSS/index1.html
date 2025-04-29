@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML+CSS Assignment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            color: #2d2d2d;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b0082;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffffcc;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 6px 12px rgba(75, 0, 130, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(75, 0, 130, 0.2);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #5f27cd;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .card a:hover {
+            color: #341f97;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML+CSS Assignments</h1>
+    <div class="container">
+        <div class="card"><a href="Assignment no.1.html">Assignment 1</a></div>
+        <div class="card"><a href="Assignment no.2.html">Assignment 2</a></div>
+        <div class="card"><a href="Assignment no.3.html">Assignment 3</a></div>
+        <div class="card"><a href="Assignment no.4.html">Assignment 4</a></div>
+        <div class="card"><a href="Assignment no.5.html">Assignment 5</a></div>
+        <div class="card"><a href="Assignment no.6.html">Assignment 6</a></div>
+        <div class="card"><a href="Assignment no.7.html">Assignment 7</a></div>
+        <div class="card"><a href="Assignment no.8.html">Assignment 8</a></div>
+        <div class="card"><a href="Assignment no.9.html">Assignment 9</a></div>
+        <div class="card"><a href="Assignment no.10.html">Assignment 10</a></div>
+    </div>
+
+</body>
+</html>

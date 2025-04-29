@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XML Assignment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      padding: 30px 20px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: #4a148c;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 0 10px;
+    }
+
+    .box {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-6px);
+      background-color: #f3e5f5;
+      box-shadow: 0 10px 25px rgba(106, 27, 154, 0.25);
+    }
+
+    .box a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #6a1b9a;
+      transition: color 0.3s ease;
+    }
+
+    .box a:hover {
+      color: #4a148c;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1>XML Assignments</h1>
+    </header>
+
+    <div class="box-container">
+      <div class="box">
+        <a href="XML_CSS/index4.html">XML + CSS Assignments</a>
+      </div>
+      <div class="box">
+        <a href="XML transformation using XSL/index3.html">XML Transformation using XSL</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
