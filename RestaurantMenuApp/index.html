@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff8f0;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #d35400;
+      animation: slideDown 1s ease-out;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background: #d35400;
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #e67e22;
+    }
+
+    .filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filters button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background: #d35400;
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .filters button:hover {
+      background: #e67e22;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+    .item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .item h3 {
+      margin-top: 10px;
+      color: #d35400;
+    }
+
+    .item .more-btn {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #e67e22;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .item .more-btn:hover {
+      background: #d35400;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .popup-content img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .popup-content h3 {
+      margin: 10px 0;
+      color: #d35400;
+    }
+
+    .popup-content p {
+      color: #555;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #d35400;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #e67e22;
+    }
+
+    .about, .contact {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .about h2, .contact h2 {
+      color: #d35400;
+      margin-bottom: 15px;
+    }
+
+    .contact form {
+      margin-top: 20px;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .contact button {
+      background: #d35400;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background: #e67e22;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Restaurant</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About Us</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+
+  <div id="homeSection">
+    <div class="filters">
+      <button onclick="filterItems('all')">All</button>
+      <button onclick="filterItems('breakfast')">Breakfast</button>
+      <button onclick="filterItems('lunch')">Lunch</button>
+      <button onclick="filterItems('dessert')">Dessert</button>
+    </div>
+    <div class="menu" id="menu"></div>
+  </div>
+
+  <div id="aboutSection" style="display: none;">
+    <div class="about">
+      <h2>About Us</h2>
+      <p>Welcome to Our Restaurant! We take pride in serving delicious meals made from fresh ingredients. Whether you're here for a hearty breakfast, a fulfilling lunch, or a delightful dessert, our menu has something for everyone. Our chefs blend tradition with creativity to bring you unforgettable flavors. Thank you for dining with us!</p>
+      <p style="margin-top: 20px; font-weight: 500;">📍 Address: 123 Foodie Lane, Kolhapur City, India - 416012</p>
+    </div>
+  </div>
+
+  <div id="contactSection" style="display: none;">
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content" id="popupContent"></div>
+  </div>
+
+  <script>
+    const menuData = [
+      { category: 'breakfast', name: 'Pancakes', image: 'images/pancakes.jpg', description: 'Fluffy pancakes served with syrup.', price: '₹150', ingredients: 'Flour, eggs, milk, syrup' },
+      { category: 'breakfast', name: 'Idli Sambar', image: 'images/idli-sambar.jpg', description: 'Soft idlis served with hot sambar and chutney.', price: '₹80', ingredients: 'Rice, urad dal, spices, coconut' },
+      { category: 'breakfast', name: 'Dosa', image: 'images/dosa.jpg', description: 'Crispy dosa served with sambar and coconut chutney.', price: '₹90', ingredients: 'Rice, urad dal, oil, spices' },
+      { category: 'breakfast', name: 'Omelette', image: 'images/omelette.jpg', description: 'Classic egg omelette served with toast and optional veggies.', price: '₹70', ingredients: 'Eggs, onions, tomatoes, green chilies, salt, pepper, oil' },
+      { category: 'breakfast', name: 'Aloo Paratha', image: 'images/aloo-paratha.jpg', description: 'Stuffed whole wheat flatbread with spiced mashed potatoes, served with curd and pickle.', price: '₹90', ingredients: 'Wheat flour, potato, onion, spices, curd, pickle' },
+       { category: 'breakfast', name: 'Poha', image: 'images/poha.jpg', description: 'Flattened rice cooked with turmeric, onions, and peanuts — a light and nutritious start to the day.', price: '₹60', ingredients: 'Flattened rice, mustard seeds, onion, green chili, turmeric, peanuts' },
+      { category: 'breakfast', name: 'Upma', image: 'images/upma.jpg', description: 'Savory semolina dish cooked with vegetables and spices, served warm.', price: '₹65', ingredients: 'Semolina (rava), vegetables, mustard seeds, curry leaves' },
+     { category: 'breakfast', name: 'Chole Bhature', image: 'images/chole-bhature.jpg', description: 'Deep-fried fluffy bread served with spicy chickpea curry — a hearty North Indian breakfast.', price: '₹120', ingredients: 'Chickpeas, flour, onion, tomato, spices' },
+
+
+{ category: 'lunch', name: 'Butter Chicken', image: 'images/butter-chicken.jpg', description: 'Tender chicken pieces in a rich, creamy tomato-based gravy.', price: '₹220', ingredients: 'Chicken, butter, cream, tomato, spices' },
+
+{ category: 'lunch', name: 'Veg Pulao', image: 'images/veg-pulao.jpg', description: 'Aromatic rice cooked with mixed vegetables and spices.', price: '₹140', ingredients: 'Basmati rice, vegetables, whole spices, ghee' },
+
+{ category: 'lunch', name: 'Fish Curry Rice', image: 'images/fish-curry.jpg', description: 'Spicy and tangy fish curry served with steamed rice — a coastal favorite.', price: '₹230', ingredients: 'Fish, coconut, spices, rice, tamarind' },
+      
+      { category: 'lunch', name: 'Chicken Biryani', image: 'images/chicken-biryani.jpg', description: 'Aromatic basmati rice cooked with spiced chicken and herbs.', price: '₹200', ingredients: 'Chicken, basmati rice, spices, yogurt, onions, coriander' },
+      { category: 'lunch', name: 'Paneer Butter Masala', image: 'images/paneer-butter-masala.jpg', description: 'Soft paneer cubes in rich, creamy tomato-based gravy.', price: '₹180', ingredients: 'Paneer, tomatoes, cream, butter, spices' },
+      { category: 'lunch', name: 'Veg Thali', image: 'images/veg-thali.jpg', description: 'Assorted vegetarian dishes served with rice, roti, and dessert.', price: '₹160', ingredients: 'Rice, dal, vegetables, roti, pickle, sweet' },
+      { category: 'dessert', name: 'Gulab Jamun', image: 'images/gulab-jamun.jpg', description: 'Soft milk-solid balls soaked in rose-flavored sugar syrup.', price: '₹60', ingredients: 'Khoya, sugar, rose water, cardamom' },
+      { category: 'dessert', name: 'Rasgulla', image: 'images/rasgulla.jpg', description: 'Soft and spongy balls made from chenna soaked in sugar syrup.', price: '₹70', ingredients: 'Chenna (paneer), sugar, water' },
+      { category: 'dessert', name: 'Chocolate Brownie', image: 'images/brownie.jpg', description: 'Rich chocolate brownie topped with nuts and served warm.', price: '₹90', ingredients: 'Chocolate, flour, sugar, eggs, butter, walnuts' },
+      { category: 'dessert', name: 'Ice Cream', image: 'images/ice-cream.jpg', description: 'Chilled scoops of your favorite flavors.', price: '₹100', ingredients: 'Milk, sugar, flavors' },
+      {
+        category: 'dessert',
+        name: 'Mango Mousse',
+        image: 'images/mango-mousse.jpg',
+        description: 'Creamy mango-flavored dessert topped with whipped cream and mango pieces.',
+        price: '₹90',
+        ingredients: 'Mango pulp, cream, sugar, gelatin'
+      },
+      {
+        category: 'dessert',
+        name: 'Kulfi',
+        image: 'images/kulfi.jpg',
+        description: 'Traditional Indian ice cream made with thickened milk, flavored with cardamom and pistachios.',
+        price: '₹80',
+        ingredients: 'Milk, sugar, cardamom, pistachios, saffron'
+      },
+    ];
+
+    const menu = document.getElementById('menu');
+    const popup = document.getElementById('popup');
+    const popupContent = document.getElementById('popupContent');
+
+    function displayMenu(items) {
+      menu.innerHTML = '';
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <button class="more-btn" onclick="showPopup(${menuData.indexOf(item)})">More</button>
+        `;
+        menu.appendChild(div);
+      });
+    }
+
+    function filterItems(category) {
+      if (category === 'all') {
+        displayMenu(menuData);
+      } else {
+        const filtered = menuData.filter(item => item.category === category);
+        displayMenu(filtered);
+      }
+    }
+
+    function showPopup(index) {
+      const item = menuData[index];
+      popupContent.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" />
+        <h3>${item.name}</h3>
+        <p><strong>Description:</strong> ${item.description}</p>
+        <p><strong>Price:</strong> ${item.price}</p>
+        <p><strong>Ingredients:</strong> ${item.ingredients}</p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+      `;
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+
+    function showSection(section) {
+      document.getElementById('homeSection').style.display = section === 'home' ? 'block' : 'none';
+      document.getElementById('aboutSection').style.display = section === 'about' ? 'block' : 'none';
+      document.getElementById('contactSection').style.display = section === 'contact' ? 'block' : 'none';
+    }
+
+    displayMenu(menuData);
+  </script>
+
+</body>
+</html>
